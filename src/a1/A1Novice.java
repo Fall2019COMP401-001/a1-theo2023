@@ -10,10 +10,16 @@ public class A1Novice
 
 		// Your code follows here.
 		
-		int numCustomers = scan.nextInt();
+		// Reads in an integer representing the number of customers and
+		// creates an array of Customer objects with size as that integer
+		Customer[] customers = new Customer[scan.nextInt()];
 		
-		Customer[] customers = new Customer[numCustomers];
-		
+		/* Fills the array with new Customer objects, reading in fields
+		 * firstName, lastName, and itemsBought
+		 * 
+		 * Creates and fills an array of new Item objects for each customer,
+		 * reading in fields amount, name, and price
+		 */
 		for (int i = 0; i < customers.length; i++)
 		{
 			customers[i] = new Customer(scan.next(), scan.next(), scan.nextInt());
@@ -25,14 +31,21 @@ public class A1Novice
 				items[j] = new Item(scan.nextInt(), scan.next(), scan.nextDouble());
 			}
 			
-			String result = String.format("%.2f", getTotal(customers[i], items));
+			// Formats the total price to two decimal places
+			String result = String.format("%.2f", getTotal(items));
 			
 			System.out.println(customers[i].getFirstName().charAt(0) + ". " + 
 							   customers[i].getLastName() + ": " + result);
 		}
+		
+		// Closes the scanner as it is no longer needed
 		scan.close();
 	}
-	private static double getTotal(Customer customer, Item[] items)
+	/* Calculates and returns the total cost of the items purchased by a customer.
+	 * Input: items, an array of this customer's Item objects
+	 * Output: total cost of items purchased as a double
+	 */
+	private static double getTotal(Item[] items)
 	{
 		double total = 0.0;
 		
@@ -40,12 +53,17 @@ public class A1Novice
 		{
 			total += items[i].getPrice() * items[i].getAmount();
 		}
+		
 		return total;
 	}
+	
+	// Represents a customer with a first name, last name, and the number of items bought.
 	public static class Customer
 	{
 		private String firstName;
+		
 		private String lastName;
+		
 		private int itemsBought;
 		
 		public Customer(String first, String last, int items)
@@ -54,23 +72,30 @@ public class A1Novice
 			this.lastName = last;
 			this.itemsBought = items;
 		}
+		
 		public String getFirstName()
 		{
 			return firstName;
 		}
+		
 		public String getLastName()
 		{
 			return lastName;
 		}
+		
 		public int getItemsBought()
 		{
 			return itemsBought;
 		}
 	}
+	
+	// Represents an item with an amount, name, and price.
 	public static class Item
 	{
 		private int amount;
+		
 		private String name;
+		
 		private double price;
 		
 		public Item(int amt, String n, double p)
@@ -79,14 +104,17 @@ public class A1Novice
 			name = n;
 			price = p;
 		}
+		
 		public int getAmount()
 		{
 			return amount;
 		}
+		
 		public String getName()
 		{
 			return name;
 		}
+		
 		public double getPrice()
 		{
 			return price;
