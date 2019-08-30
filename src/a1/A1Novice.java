@@ -25,7 +25,8 @@ public class A1Novice
 		{
 			customers[i] = new Customer(scan.next(), scan.next(), scan.nextInt());
 			
-			Item[] items = new Item[customers[i].getItemsBought()];
+			// Customer is a static class, so fields can be accessed without getter methods.
+			Item[] items = new Item[customers[i].itemsBought];
 			
 			for (int j = 0; j < items.length; j++)
 			{
@@ -35,14 +36,17 @@ public class A1Novice
 			// Formats the total price to two decimal places
 			String result = String.format("%.2f", getTotal(items));
 			
-			System.out.println(customers[i].getFirstName().charAt(0) + ". " + 
-							   customers[i].getLastName() + ": " + result);
+			System.out.println(customers[i].firstName.charAt(0) + ". " + 
+							   customers[i].lastName + ": " + result);
 		}
 		
 		// Closes the scanner as it is no longer needed
 		scan.close();
 	}
-	/* Calculates and returns the total cost of the items purchased by a customer.
+	
+	/* Calculates and returns the total cost of the items purchased by a customer
+	 * by summing the product of each bought item's price and its amount.
+	 * 
 	 * Input: items, an array of this customer's Item objects
 	 * Output: total cost of items purchased as a double
 	 */
@@ -52,7 +56,8 @@ public class A1Novice
 		
 		for (int i = 0; i < items.length; i++)
 		{
-			total += items[i].getPrice() * items[i].getAmount();
+			// Item is also a static class, so fields can be accessed without getter methods.
+			total += items[i].price * items[i].amount;
 		}
 		
 		return total;
@@ -73,21 +78,6 @@ public class A1Novice
 			this.lastName = last;
 			this.itemsBought = items;
 		}
-		
-		public String getFirstName()
-		{
-			return firstName;
-		}
-		
-		public String getLastName()
-		{
-			return lastName;
-		}
-		
-		public int getItemsBought()
-		{
-			return itemsBought;
-		}
 	}
 	
 	// Represents an item with an amount, name, and price.
@@ -104,21 +94,6 @@ public class A1Novice
 			amount = amt;
 			name = n;
 			price = p;
-		}
-		
-		public int getAmount()
-		{
-			return amount;
-		}
-		
-		public String getName()
-		{
-			return name;
-		}
-		
-		public double getPrice()
-		{
-			return price;
 		}
 	}
 }
