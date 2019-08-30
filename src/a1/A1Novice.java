@@ -18,6 +18,7 @@ public class A1Novice
 		 * firstName, lastName, and itemsBought
 		 * 
 		 * Creates and fills an array of new Item objects for each customer,
+		 * with size the number of items bought,
 		 * reading in fields amount, name, and price
 		 */
 		for (int i = 0; i < customers.length; i++)
