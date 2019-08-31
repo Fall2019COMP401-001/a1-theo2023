@@ -129,7 +129,7 @@ public class A1Jedi
 				for (int j = 0; j < itemsBought.length; j++)
 				{
 					if (itemsBought[j].name.equals(this.name)
-						&& itemsBought[j].amount == this.amount)
+						&& itemsBought[j].amount > 0)
 					{
 						numCustomers++;
 					}
