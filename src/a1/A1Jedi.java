@@ -132,6 +132,7 @@ public class A1Jedi
 						&& itemsBought[j].amount > 0)
 					{
 						numCustomers++;
+						break; // if a customer bought this item, go to the next customer
 					}
 				}
 			}
