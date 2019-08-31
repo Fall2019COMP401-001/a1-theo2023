@@ -111,9 +111,9 @@ public class A1Jedi
 			name = n;
 		}
 		
-		/* Calculates and returns the number of customers who bought this item
-		 * by going through each customer's bought items, checking for a match
-		 * and a non-zero amount of the item, and adding to a counter.
+		/* Calculates and returns the number of customers who bought
+		 * this item by going through each customer's bought items,
+		 * checking for a match, and adding to a counter.
 		 * 
 		 * Input: customers, an array of all the Customer objects
 		 * Output: the number of customers who bought this item as an integer
@@ -129,7 +129,7 @@ public class A1Jedi
 				for (int j = 0; j < itemsBought.length; j++)
 				{
 					if (itemsBought[j].name.equals(this.name)
-						&& itemsBought[j].amount > 0)
+						&& itemsBought[j].amount == this.amount)
 					{
 						numCustomers++;
 					}
