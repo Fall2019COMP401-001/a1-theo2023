@@ -61,7 +61,8 @@ public class A1Jedi
 			}
 			else
 			{
-				// Item is a static class, so fields can be accessed without getter methods.
+				// Item is also a static class, so fields
+				// can be accessed without getter methods.
 				System.out.println(numCustomers + " customers bought " + 
 								   itemsInStore[i].getTotalBought(customers)
 								   + " " + itemsInStore[i].name);
